@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		{% block title %}<title>Lesson planning made easy</title>{% endblock %}
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+
+		<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+
+		{% load static %}
+		<link rel="stylesheet" href="{% static 'css/styles.css' %}">
+		<link rel="shortcut icon" type="image/png" href="{% static 'favicon.ico' %}"/>
+
+
+
+	</head>
+	<body>
+		<nav class="navbar navbar-expand-sm bg-info">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link text-dark" href="{% url 'index' %}">Home</a>
+				</li>
+				 {% if user.is_authenticated %}
+				<li class="nav-item">
+					<a class="nav-link text-white" href="{% url 'logout' %}">Log out</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="{% url 'password_reset' %}">Password Reset</a>
+				</li>
+				{% else %}
+				<li class="nav-item">
+					<a class="nav-link text-white" href="{% url 'register' %}">Sign up</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="{% url 'login' %}">Log in</a>
+				</li>
+				{% endif %}
+			</ul>
+		</nav>
+
+		<nav class="navbar navbar-expand-sm justify-content center bg-dark">
+			<span class="navbar-text text-light">Lesson Planning tools</span>
+			<ul class="navbar-nav ">
+				{% if user.is_authenticated %}
+				<li class="nav-item">
+					<a class="nav-link text-white" href="{% url 'assessment' %}">Assessment</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="{% url 'student_activity' %}">Student_activity</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="{% url 'class' %}">Class</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="{% url 'lesson' %}">Lesson</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link text-white" href="{% url 'lesson_activities' %}">lesson_activities</a>
+				</li>
+				
+				{% else %}
+				{% endif %}
+			</ul>
+		</nav
+		
+		<div>{% block content %}{% endblock %}</div>
+	</body>
+</html>

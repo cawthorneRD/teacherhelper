@@ -1,0 +1,16 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h1>Lesson List</h1>
+  {% if lesson_activity %}
+  <ul>
+    {% for activity in lesson_activity %}
+      <li>
+        <p>{{ activity.activity }} with ({{activity.teacher_activity}}) </p>
+      </li>
+    {% endfor %}
+  </ul>
+  {% else %}
+    <p>There are no lessons available.</p>
+  {% endif %}
+{% endblock %}

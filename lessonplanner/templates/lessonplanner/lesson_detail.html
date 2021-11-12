@@ -1,0 +1,77 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+  <h4 class="container">Lessson: {{ lesson.title }}</h4>
+	<table class="container">
+		<thead>
+			<tr>
+				<th>Class </th>
+				<th>Date </th>
+				<th>Objectives </th>
+				<th>Context</th>
+			</tr>
+		<tbody>
+			<tr>
+				<td> {{ lesson.classID_id }} </td>
+				<td> {{ lesson.date }}	</td>
+				<td> {{ lesson.objectives }} </td>
+				<td> {{ lesson.context  }} </td>
+			</tr>
+		</tbody>
+	</table>
+	<br>
+	<table class="container">
+		<thead>
+			<tr>
+				<th>Learner needs </th>
+				<th>Extended learning </th>
+				<th>Wider learning </th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td> {{ lesson.learner_needs }} </td>
+				<td> {{ lesson.extended_learning }}	</td>
+				<td> {{ lesson.wider_learning }} </td>
+
+			</tr>
+		</tbody>
+	</table>
+
+	<br>
+	
+	<table class="container">
+		<thead>
+			<tr>
+				<th>Activity</th>
+				<th>Start</th>
+				<th>End</th>
+				<th>Teacher activity</th>
+				<th>Student activity</th>
+				<th>Assessment</th>
+			</tr>
+		</thead>
+		<tbody>
+		{% for activity in activity_list %}
+	
+			<tr>
+				<td>{{activity.activity}}</td>
+				<td>{{activity.start_time}} </td>
+				<td>{{activity.end_time}}</td>
+				<td>{{activity.teacher_activity}}</td>
+	  
+			{% for student in student_detail %}
+				{% if student.id == activity.student_activity_id  %}
+					<td>{{student.name}}</td>
+				{% endif %}
+			{% endfor %}
+
+			{% for assessment in assessment_detail %}
+				{% if assessment.id == activity.assessment_id  %}
+					<td>{{assessment.name}}</td>
+				{% endif %}
+			{% endfor %}
+		{% endfor %}
+		</tbody>
+	</table>
+{% endblock %}

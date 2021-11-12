@@ -1,0 +1,20 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+<br>
+<h6 class="container"> Welcome back {{first_name}} {{last_name}}</h6>
+
+	<h4 class="container">Here is a list of your lessons </h4>
+
+	<ul class="container">
+		{% for less in lesson %}
+			<li>
+			<a href="detail/{{ less.lessonID }}">{{ less.title}} with {{ less.classID }}</a>
+			</li>
+
+		{% endfor %}
+	</ul>
+
+
+{% endblock %}
+

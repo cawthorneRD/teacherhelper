@@ -1,0 +1,12 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\lessonplanner",
+    "\\lessonplanner\\static\\css",
+    "\\lessonplanner\\templates\\lessonplanner",
+    "\\teacherhelper",
+    "\\templates\\registration"
+  ],
+  "SelectedNode": "\\teacherhelper\\settings.py",
+  "PreviewInSolutionExplorer": false
+}

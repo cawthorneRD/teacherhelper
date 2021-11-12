@@ -1,0 +1,23 @@
+{% extends "base_generic.html" %}
+
+{% block content %}
+
+<form method="post">
+	{% csrf_token %}
+    {% for field in form %}
+		<div class="container">
+		<p >
+		{{field.label_tag}}<br>
+		{{field}}
+		</p>
+		{% if field.help_text %}
+			<small style="color:grey;"><i>{{field.help_text}}</i></small>
+		{% endif %}
+		</div>
+	{% endfor %}
+    <input type="submit" class="btn btn-dark" value="Register" style="margin-left:80px">
+</form>
+
+{% endblock %}
+
+<!-- https://developer.mozilla.org/en-US/docs/Learn/Server-side/Django/Authentication used as a template for this page-->
