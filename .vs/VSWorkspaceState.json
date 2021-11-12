@@ -2,11 +2,8 @@
   "ExpandedNodes": [
     "",
     "\\lessonplanner",
-    "\\lessonplanner\\static\\css",
-    "\\lessonplanner\\templates\\lessonplanner",
-    "\\teacherhelper",
-    "\\templates\\registration"
+    "\\teacherhelper"
   ],
-  "SelectedNode": "\\teacherhelper\\settings.py",
+  "SelectedNode": "\\teacherhelper\\wsgi.py",
   "PreviewInSolutionExplorer": false
 }
