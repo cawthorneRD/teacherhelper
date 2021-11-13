@@ -44,7 +44,7 @@ class Lesson(models.Model):
 
 	title = models.TextField(max_length=100)
 
-	lessonID = models.AutoField(primary_key=True) # primary key for lessons
+	lessonID = models.AutoField(primary_key=True, max_length=36) # primary key for lessons
 
 	context = models.TextField(max_length=5000, help_text='Enter the context of the lesson')
 	objectives = models.TextField(max_length=5000, help_text='Enter the objectives of the lesson')
