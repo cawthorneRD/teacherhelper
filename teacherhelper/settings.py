@@ -12,6 +12,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+import django_heroku
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -28,6 +29,9 @@ SECRET_KEY = os.environ.get('DJANGO_SECRET_KEY', 'mjy#svo)tafi3x@ltifd%bv!$9%85!
 DEBUG = os.environ.get('DJANGO_DEBUG', '') != 'False'
 
 ALLOWED_HOSTS = ['radiant-river-54424.herokuapp.com', '127.0.0.1']
+
+# Activate Django-Heroku.
+django_heroku.settings(locals())
 
 
 # Application definition
@@ -80,10 +84,15 @@ WSGI_APPLICATION = 'teacherhelper.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': 'django.db.backends.postgresql',
+        'NAME': 'empty_db', # The Server name from 1.5
+        'USER': 'postgres', # The username from 1.6
+        'PASSWORD': 'NANO1scale', # The password from installation
+        'HOST': 'localhost', # Host name/address from 1.6,
+        'PORT': '5432', # Port from 1.6
     }
 }
+
 
 
 # Password validation
