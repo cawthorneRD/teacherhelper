@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 import os
 import django_heroku
+import dj_database_url
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -84,12 +85,8 @@ WSGI_APPLICATION = 'teacherhelper.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'empty_db', # The Server name from 1.5
-        'USER': 'postgres', # The username from 1.6
-        'PASSWORD': 'NANO1scale', # The password from installation
-        'HOST': 'localhost', # Host name/address from 1.6,
-        'PORT': '5432', # Port from 1.6
+        'ENGINE': dj_database_url.config(conn_max_age=600, ssl_require=True)
+         # Port from 1.6
     }
 }
 
