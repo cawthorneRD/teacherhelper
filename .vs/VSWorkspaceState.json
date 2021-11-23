@@ -4,6 +4,6 @@
     "\\lessonplanner",
     "\\teacherhelper"
   ],
-  "SelectedNode": "\\teacherhelper\\settings.py",
+  "SelectedNode": "\\teacherhelper\\wsgi.py",
   "PreviewInSolutionExplorer": false
 }
